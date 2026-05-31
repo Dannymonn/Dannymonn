@@ -23,7 +23,7 @@
         android:name="com.workout.tracker.ui.workout.active.ActiveWorkoutFragment"
         android:label="Workout"
         tools:layout="@layout/fragment_active_workout">
-        <argument android:name="routineId" app:argType="long" android:defaultValue="-1" />
+        <argument android:name="routineId" app:argType="long" android:defaultValue="-1L" />
         <argument android:name="routineName" app:argType="string" android:defaultValue="Free Workout" />
     </fragment>
 
@@ -42,7 +42,7 @@
         android:name="com.workout.tracker.ui.workout.routine.EditRoutineFragment"
         android:label="Edit Routine"
         tools:layout="@layout/fragment_edit_routine">
-        <argument android:name="routineId" app:argType="long" android:defaultValue="-1" />
+        <argument android:name="routineId" app:argType="long" android:defaultValue="-1L" />
         <argument android:name="routineName" app:argType="string" android:defaultValue="New Routine" />
     </fragment>
 
