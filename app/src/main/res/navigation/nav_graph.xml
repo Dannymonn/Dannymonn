@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.workout.tracker.ui.dashboard.DashboardFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboard_to_activeWorkout"
+            app:destination="@id/activeWorkoutFragment" />
+        <action
+            android:id="@+id/action_dashboard_to_run"
+            app:destination="@id/runFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/activeWorkoutFragment"
+        android:name="com.workout.tracker.ui.workout.active.ActiveWorkoutFragment"
+        android:label="Workout"
+        tools:layout="@layout/fragment_active_workout">
+        <argument android:name="routineId" app:argType="long" android:defaultValue="-1" />
+        <argument android:name="routineName" app:argType="string" android:defaultValue="Free Workout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/routineListFragment"
+        android:name="com.workout.tracker.ui.workout.routine.RoutineListFragment"
+        android:label="Routines"
+        tools:layout="@layout/fragment_routine_list">
+        <action
+            android:id="@+id/action_routines_to_editRoutine"
+            app:destination="@id/editRoutineFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editRoutineFragment"
+        android:name="com.workout.tracker.ui.workout.routine.EditRoutineFragment"
+        android:label="Edit Routine"
+        tools:layout="@layout/fragment_edit_routine">
+        <argument android:name="routineId" app:argType="long" android:defaultValue="-1" />
+        <argument android:name="routineName" app:argType="string" android:defaultValue="New Routine" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutHistoryFragment"
+        android:name="com.workout.tracker.ui.workout.history.WorkoutHistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_workout_history">
+        <action
+            android:id="@+id/action_history_to_detail"
+            app:destination="@id/workoutDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.workout.tracker.ui.workout.history.WorkoutDetailFragment"
+        android:label="Workout Detail"
+        tools:layout="@layout/fragment_workout_detail">
+        <argument android:name="sessionId" app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exerciseLibraryFragment"
+        android:name="com.workout.tracker.ui.exercise.ExerciseLibraryFragment"
+        android:label="Exercises"
+        tools:layout="@layout/fragment_exercise_library" />
+
+    <fragment
+        android:id="@+id/runFragment"
+        android:name="com.workout.tracker.ui.running.RunFragment"
+        android:label="Run"
+        tools:layout="@layout/fragment_run" />
+
+    <fragment
+        android:id="@+id/goalsFragment"
+        android:name="com.workout.tracker.ui.goals.GoalsFragment"
+        android:label="Goals"
+        tools:layout="@layout/fragment_goals" />
+
+</navigation>

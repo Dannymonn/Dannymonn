@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Workout Tracker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Stats row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Workouts" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    <TextView android:id="@+id/tv_total_workouts" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textColor="@color/accent" android:textSize="24sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Total Volume" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+                    <TextView android:id="@+id/tv_total_volume" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0 kg"
+                        android:textColor="@color/accent" android:textSize="18sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Goal card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="12dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Weight Goal" android:textColor="@color/text_secondary" android:textSize="12sp"
+                    android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/tv_goal_weight" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="No goal set"
+                    android:textColor="@color/text_primary" android:textSize="16sp"/>
+                <TextView android:id="@+id/tv_current_weight" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Log your weight"
+                    android:textColor="@color/text_secondary" android:textSize="14sp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Quick start -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Quick Start" android:textColor="@color/text_primary"
+            android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_free_workout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Free Workout"
+                style="@style/Widget.Material3.Button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start_run"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="Start Run"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+        </LinearLayout>
+
+        <!-- Routines -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="My Routines" android:textColor="@color/text_primary"
+                android:textSize="18sp" android:textStyle="bold"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tv_no_routines" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="No routines yet — create one in Routines tab"
+            android:textColor="@color/text_secondary" android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_routines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- Last workout -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Last Workout" android:textColor="@color/text_secondary"
+            android:textSize="12sp" android:layout_marginTop="16dp"/>
+        <TextView android:id="@+id/tv_last_workout" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="None yet"
+            android:textColor="@color/text_primary" android:textSize="16sp"/>
+
+        <!-- Run distance -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Total Distance Run" android:textColor="@color/text_secondary"
+            android:textSize="12sp" android:layout_marginTop="8dp"/>
+        <TextView android:id="@+id/tv_total_distance" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="0 km"
+            android:textColor="@color/text_primary" android:textSize="16sp"/>
+
+    </LinearLayout>
+</ScrollView>

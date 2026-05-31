@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/dashboardFragment" android:title="Home" android:icon="@drawable/ic_home" />
+    <item android:id="@+id/routineListFragment" android:title="Routines" android:icon="@drawable/ic_workout" />
+    <item android:id="@+id/runFragment" android:title="Run" android:icon="@drawable/ic_run" />
+    <item android:id="@+id/workoutHistoryFragment" android:title="History" android:icon="@drawable/ic_history" />
+    <item android:id="@+id/goalsFragment" android:title="Goals" android:icon="@drawable/ic_goal" />
+</menu>
