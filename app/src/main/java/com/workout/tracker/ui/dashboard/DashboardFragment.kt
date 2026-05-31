@@ -28,11 +28,13 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val routineAdapter = RoutineAdapter { routine ->
-            findNavController().navigate(
-                DashboardFragmentDirections.actionDashboardToActiveWorkout(routine.id, routine.name)
-            )
-        }
+        val routineAdapter = RoutineAdapter(
+            onClick = { routine ->
+                findNavController().navigate(
+                    DashboardFragmentDirections.actionDashboardToActiveWorkout(routine.id, routine.name)
+                )
+            }
+        )
         binding.rvRoutines.adapter = routineAdapter
 
         binding.btnFreeWorkout.setOnClickListener {
