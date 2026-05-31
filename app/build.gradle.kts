@@ -56,8 +56,7 @@ dependencies {
     implementation(libs.androidx.viewpager2)
     implementation(libs.glide)
     kapt(libs.glide.compiler)
-    implementation(libs.mpandroidchart)
-    testImplementation(libs.junit)
+testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
